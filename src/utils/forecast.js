@@ -38,6 +38,9 @@ const forecast = (longitude, latitude, callback) => {
     } else {
       //do something with the data
       //callback(error, response.body);
+      console.log("This is the body of the response from the weatherstack");
+      console.log(body);
+
       callback(
         error,
         body.current.weather_descriptions[0] +
@@ -45,7 +48,11 @@ const forecast = (longitude, latitude, callback) => {
           body.current.temperature +
           " degrees out. It feels like " +
           body.current.feelslike +
-          " degrees out "
+          " degrees out. " +
+          "The overall pressure is " +
+          body.current.pressure +
+          " And the visibility is " +
+          body.current.visibility
       );
     }
   });
