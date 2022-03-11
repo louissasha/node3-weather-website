@@ -17,6 +17,10 @@ const hbs = require("hbs");
 //this is the top level function created by the module
 const app = express();
 
+//when the codew will run on heroku we will have access to the PORT variable from the process.env object and if that value doesnt exist then we
+// can use the default port
+const port = process.env.PORT || 3000;
+
 const publicDirPath = path.join(__dirname, "../public");
 
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -177,6 +181,6 @@ app.get("*", (req, res) => {
   //   res.send("My 404 page");
 });
 
-app.listen(3000, () => {
-  console.log("Server is listening on port 3000");
+app.listen(port, () => {
+  console.log("Server is listening on port " + port);
 });

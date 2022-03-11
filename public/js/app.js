@@ -4,7 +4,7 @@ console.log("Client side Javascript files is loaded");
 //test
 
 //FETCH API
-fetch("http://localhost:3000/weather?address=Montreal").then((response) => {
+fetch("/weather?address=Montreal").then((response) => {
   //on the javascript side we use the then function which will fire off when we get the resonse object back from the api call.
 
   console.log(response);
@@ -53,23 +53,21 @@ weatherForm.addEventListener("submit", (event) => {
   //add the search value from the search element that was the input
   const location = searchElement.value;
 
-  fetch("http://localhost:3000/weather?address=" + location).then(
-    (response) => {
-      console.log(response); //this is promise type object
-      console.log(
-        response.json().then((value) => {
-          if (value.error) {
-            messageOne.textContent = value.error;
-          } else {
-            console.log(value);
+  fetch("/weather?address=" + location).then((response) => {
+    console.log(response); //this is promise type object
+    console.log(
+      response.json().then((value) => {
+        if (value.error) {
+          messageOne.textContent = value.error;
+        } else {
+          console.log(value);
 
-            messageOne.textContent = value.location;
-            messageTwo.textContent = value.data;
-          }
-        })
-      );
-    }
-  );
+          messageOne.textContent = value.location;
+          messageTwo.textContent = value.data;
+        }
+      })
+    );
+  });
 
   console.log(location);
 });
