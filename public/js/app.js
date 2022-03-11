@@ -1,4 +1,7 @@
 console.log("Client side Javascript files is loaded");
+console.log("Client side Javascript files is loaded");
+
+//test
 
 //FETCH API
 fetch("http://localhost:3000/weather?address=Montreal").then((response) => {
