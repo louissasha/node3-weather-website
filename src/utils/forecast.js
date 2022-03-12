@@ -43,16 +43,17 @@ const forecast = (longitude, latitude, callback) => {
 
       callback(
         error,
-        body.current.weather_descriptions[0] +
-          ". The current temperature is " +
-          body.current.temperature +
-          " degrees out. It feels like " +
-          body.current.feelslike +
-          " degrees out. " +
-          "The overall pressure is " +
-          body.current.pressure +
-          " And the visibility is " +
-          body.current.visibility
+        body.current
+        // body.current.weather_descriptions[0] +
+        //   ". The current temperature is " +
+        //   body.current.temperature +
+        //   " degrees out. It feels like " +
+        //   body.current.feelslike +
+        //   " degrees out. " +
+        //   "The overall pressure is " +
+        //   body.current.pressure +
+        //   " And the visibility is " +
+        //   body.current.visibility
       );
     }
   });

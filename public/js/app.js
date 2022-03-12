@@ -38,6 +38,9 @@ const searchElement = document.querySelector("input");
 
 const messageOne = document.querySelector("#message-1");
 const messageTwo = document.querySelector("#message-2");
+const message3 = document.querySelector("#message-3");
+const message4 = document.querySelector("#message-4");
+const message5 = document.querySelector("#message-5");
 
 messageOne.textContent = "From Javascript";
 messageTwo.textContent = "From Javascript 2";
@@ -60,10 +63,18 @@ weatherForm.addEventListener("submit", (event) => {
         if (value.error) {
           messageOne.textContent = value.error;
         } else {
-          console.log(value);
+          console.log(value.data.temperature);
+          console.log(value.data.weather_code);
+          console.log(value.data.observation_time);
 
           messageOne.textContent = value.location;
-          messageTwo.textContent = value.data;
+          messageTwo.textContent = value.data.weather_descriptions[0];
+          message3.textContent =
+            "The temperature is: " + value.data.temperature;
+          message4.textContent =
+            "The weather code is: " + value.data.weather_code;
+          message5.textContent =
+            "The observation time is: " + value.data.observation_time;
         }
       })
     );
